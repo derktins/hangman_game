@@ -4,10 +4,24 @@
 import random
 from words import words
 
+
+def get_max_length():
+    print("\nChoose the maxiumum word length you'd like to play with.")
+    try:
+        return int(input("\nEnter a number 3 or larger:  "))
+    except ValueError:
+        return get_max_length()
+
+
 def get_word():
     word = words[random.randint(0, len(words))]
-    while "-" in word or " " in word:
+    max_length = get_max_length()
+    while max_length < 3:
+        max_length = get_max_length()
+    while len(word) > max_length:
         word = words[random.randint(0, len(words))]
+        while "-" in word or " " in word:
+            word = words[random.randint(0, len(words))]
     return word
 
 def get_lives_choice():
