@@ -2,7 +2,6 @@
 
 
 import random
-from tkinter import E
 from words import words
 
 def get_word():
@@ -34,7 +33,6 @@ def play_hangman():
     
     while len(correct_guesses_removed) > 0 and lives_left > 0:
         hidden_character_list = [character if character in guessed_characters else "-" for character in word_characters] # building the hidden word
-        #word_characters = word_characters
 
         print("\nYou have " + str(lives_left) + " lives remaining\n")
         print("\nThe word is: " + "".join(hidden_character_list) + '\n')
